@@ -1,22 +1,45 @@
 ---
-abstract: '絵文字を一回かいたら、3キャリで表示できるようにするフィルタ'
+abstract: 'Convert pictograms in HTML'
+author:
+  - 'Tokuhiro Matsuno (tokuhirom@gmail.com)'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  Test::MobileAgent: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
-distribution_type: module
-generated_by: 'Module::Install version 1.00'
-license: unknown
+  Module::Build: 0.38
+dynamic_config: 0
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110440'
+license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: HTML-Pictogram-MobileJp
 no_index:
   directory:
-    - inc
     - t
-    - xt
+    - inc
+provides:
+  HTML::Pictogram::MobileJp:
+    file: lib/HTML/Pictogram/MobileJp.pm
+    version: 0.02
+  HTML::Pictogram::MobileJp::EmojiNumber:
+    file: lib/HTML/Pictogram/MobileJp/EmojiNumber.pm
+    version: 0
+  HTML::Pictogram::MobileJp::EmojiNumber::Map:
+    file: lib/HTML/Pictogram/MobileJp/EmojiNumber/Map.pm
+    version: 0
+  HTML::Pictogram::MobileJp::Unicode:
+    file: lib/HTML/Pictogram/MobileJp/Unicode.pm
+    version: 0
+  HTML::Pictogram::MobileJp::Unicode::Map:
+    file: lib/HTML/Pictogram/MobileJp/Unicode/Map.pm
+    version: 0
+  HTML::Pictogram::MobileJp::Util:
+    file: lib/HTML/Pictogram/MobileJp/Util.pm
+    version: 0
 requires:
   HTTP::MobileAgent: 0
-  perl: 5.8.0
-version: 0.01
+  parent: 0
+  perl: 5.00800
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.02

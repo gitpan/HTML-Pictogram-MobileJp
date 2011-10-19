@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use 5.00800;
 use HTML::Pictogram::MobileJp::Unicode::Map;
+use HTML::Pictogram::MobileJp::Util qw/is_iphone/;
 
 sub convert {
     my ( $class, $ma, $html ) = @_;
@@ -10,7 +11,7 @@ sub convert {
     $html =~ s{(&#x([0-9a-f]{4});)}{
         if ($ma->is_docomo) {
             $1;
-        } elsif ($ma->is_softbank) {
+        } elsif ($ma->is_softbank || is_iphone($ma->user_agent)) {
             if (my $e = $SOFTBANK->{$2}) {
                 "&#x$e;";
             } else {
@@ -60,7 +61,7 @@ HTML::Pictogram::MobileJp::Unicode - &#xXXXX; とかくと3キャリで表示で
 
 =head1 AUTHOR
 
-Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF GMAIL COME<gt>
+Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>
 
 =head1 SEE ALSO
 
